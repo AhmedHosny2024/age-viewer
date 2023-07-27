@@ -30,6 +30,7 @@ import { connectToDatabase as connectToDatabaseApi, changeGraph } from '../../..
 import { addAlert } from '../../../features/alert/AlertSlice';
 import { addFrame, trimFrame } from '../../../features/frame/FrameSlice';
 import { /* getMetaChartData, */ getMetaData } from '../../../features/database/MetadataSlice';
+import './Styles.scss';
 
 const FormInitialValue = {
   database: '',
@@ -75,17 +76,18 @@ const ServerConnectFrame = ({
       isPinned={isPinned}
       refKey={refKey}
     >
-      <Row>
+      <Row className="formContainer">
         <Col span={6}>
           <h3>Connect to Database</h3>
           <p>Database access might require an authenticated connection.</p>
         </Col>
-        <Col span={18}>
+        <Col span={10}>
           <div className={styles.FrameWrapper}>
             <Form
               initialValues={FormInitialValue}
               layout="vertical"
               onFinish={connectToDatabase}
+              // className="data"
             >
               <Form.Item name="host" label="Connect URL" rules={[{ required: true }]}>
                 <Input placeholder="192.168.0.1" />

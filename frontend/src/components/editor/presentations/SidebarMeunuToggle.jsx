@@ -19,7 +19,7 @@
 
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 
 const SidebarMeunuToggle = ({
@@ -30,14 +30,14 @@ const SidebarMeunuToggle = ({
       isActive === true
         ? (
           <FontAwesomeIcon
-            icon={faAngleUp}
-            size="3x"
+            icon={faEye}
+            size="2x"
           />
         )
         : (
           <FontAwesomeIcon
-            icon={faAngleDown}
-            size="3x"
+            icon={faEyeSlash}
+            size="2x"
           />
         )
     }

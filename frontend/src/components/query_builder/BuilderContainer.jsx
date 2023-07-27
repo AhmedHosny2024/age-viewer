@@ -55,7 +55,7 @@ const BuilderContainer = ({ open, setOpen, finder }) => {
         id="graph-selection"
         onChange={handleSelectGraph}
         placeholder="Select Graph"
-        value={selectedGraph}
+        // value={selectedGraph}
       >
         {
           availableGraphs.map((s) => (

@@ -23,6 +23,7 @@ import uuid from 'react-uuid';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle, faToggleOff, faToggleOn } from '@fortawesome/free-solid-svg-icons';
+
 import store from '../../../app/store';
 import AlertContainers from '../../alert/containers/AlertContainers';
 import CodeMirror from '../../editor/containers/CodeMirrorWapperContainer';
@@ -30,6 +31,7 @@ import SideBarToggle from '../../editor/containers/SideBarMenuToggleContainer';
 import { setting } from '../../../conf/config';
 import IconPlay from '../../../icons/IconPlay';
 import { getMetaData } from '../../../features/database/MetadataSlice';
+import './Styles.scss';
 
 const Editor = ({
   setCommand,
@@ -145,7 +147,7 @@ const Editor = ({
         <div className="container-fluid editor-area card-header">
           <div className="input-group input-style">
 
-            <div id="codeMirrorEditor" className="form-control col-11 editor-code-wrapper">
+            <div id="codeMirrorEditor" className="form-control col-12 editor-code-wrapper">
               <CodeMirror
                 onClick={onClick}
                 value={command}
@@ -167,7 +169,7 @@ const Editor = ({
                 />
               </button>
               <button
-                className="frame-head-button btn btn-link"
+                className="play btn-primary"
                 type="button"
                 onClick={() => onClick()}
                 title="Run Query"
@@ -175,7 +177,7 @@ const Editor = ({
                 <IconPlay />
               </button>
               <button
-                className="frame-head-button btn btn-link"
+                className="show btn-primary"
                 type="button"
                 onClick={() => {
                   toggleMenu('home');
@@ -191,10 +193,10 @@ const Editor = ({
                 }}
                 title={(isActive) ? 'Hide' : 'Show'}
               >
-                <SideBarToggle isActive={isActive} />
+                <SideBarToggle isActive={isActive} className="show" />
               </button>
               <button
-                className="frame-head-button btn btn-link"
+                className="switch btn-primary"
                 type="button"
                 onClick={() => setLabel()}
                 title="Run Query"

@@ -1,0 +1,54 @@
+#main{
+    display: contents;
+    width: 97%;
+    left: 42px;
+
+}
+#sidebar{
+    left: 42px;
+    margin-right: 0;
+}
+
+.refresh{
+    display: flex;
+    left: 3px;
+    position: fixed;
+    top: 291px;
+    // background-color: #007bff;
+    padding: 8px 4px 6px 11px;
+    width: 39.6px;
+    border: none;
+  }
+.refresh:hover{
+  fill: white;
+  opacity: .9;
+  }
+
+.closeSession{
+    display: flex;
+    left: 3px;
+    position: fixed;
+    top: 361px;
+    // background-color: blue;
+    padding: 9px 4px 6px 15px;
+    width: 39.6px;
+    border: none;
+  }
+.closeSession:hover{
+  fill: white;
+  opacity: .9;
+  }
+
+.sidebar-item-disconnect-outer{
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+#graphSelectionContainer{
+    width: max-content;
+    margin: auto;
+}
+.sidebar-item-disconnect{
+    margin: 0;
+}

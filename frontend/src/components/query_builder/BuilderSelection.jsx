@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
-import { ListGroup, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import React from 'react';
 import uuid from 'react-uuid';
 import KeyWordFinder from '../../features/query_builder/KeyWordFinder';
+import './BuilderContainer.scss';
 
 const BuilderSelection = ({ finder, setQuery, currentWord }) => {
   const handleClick = (e) => {
@@ -10,23 +11,19 @@ const BuilderSelection = ({ finder, setQuery, currentWord }) => {
     setQuery(selectedVal);
   };
   return (
-    <ListGroup>
-      {
     finder?.getConnectedNames(currentWord).map(
       (element) => (
-        <ListGroup.Item key={uuid()}>
-          <Button
-            size="small"
-            onClick={handleClick}
-            data-val={element}
-          >
-            {element}
-          </Button>
-        </ListGroup.Item>
+        <Button
+          key={uuid()}
+          size="small"
+          onClick={handleClick}
+          data-val={element}
+          className="item"
+        >
+          {element}
+        </Button>
       ),
     )
-    }
-    </ListGroup>
   );
 };
 

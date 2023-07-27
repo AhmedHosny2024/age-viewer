@@ -773,10 +773,10 @@ textarea.editorTextarea
     padding: 0;
     margin: 5px 0;
 }
-.close_session:active {
+/* .close_session:active {
     position:relative;
     top:1px;
-}
+} */
 .close_session:hover {
     opacity: 0.6;
 }
@@ -792,10 +792,10 @@ textarea.editorTextarea
     padding: 0;
     margin: 5px 0;
 }
-.refresh_button:active {
+/* .refresh_button:active {
     position:relative;
     top:1px;
-}
+} */
 .refresh_button:hover {
     opacity: 0.6;
 }

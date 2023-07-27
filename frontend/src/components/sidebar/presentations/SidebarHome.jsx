@@ -26,7 +26,7 @@ import { connect, useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRedo, faTimes } from '@fortawesome/free-solid-svg-icons';
 import {
-  VerticalLine, HorizontalLine, SubLabelLeft, SubLabelRight, GraphSelectDropdown,
+  VerticalLine, SubLabelLeft, SubLabelRight, GraphSelectDropdown,
 } from './SidebarComponents';
 
 const genLabelQuery = (eleType, labelName, database) => {
@@ -290,7 +290,7 @@ const GraphItems = ({
 }) => (
   <button
     type="button"
-    className={`${graph === currentGraph ? 'graph-item-clicked' : 'graph-item'}`}
+    className={graph === currentGraph ? 'graph-item-clicked' : 'graph-item'}
     onClick={() => { changeCurrentGraph({ id: gid }); changeGraph({ graphName: graph }); }}
   >
     {graph}
@@ -417,17 +417,51 @@ const SidebarHome = ({
                 changeGraph={changeGraph}
               />
             </div>
-            <div id="lastHorizontalLine">
-              <VerticalLine />
-            </div>
           </>
         ) }
       </div>
-      <div className="sidebar-item-disconnect-outer">
-        <div className="form-group sidebar-item-disconnect">
+      {!isLabel && (
+      <>
+        <div className="sidebar-item-disconnect-outer">
+          <div className="form-group sidebar-item-disconnect">
+            <div className="sidebar-item-disconnect-buttons">
+              <button
+                className="closeSession frame-head-button close_session "
+                type="button"
+                color="#142B80"
+                onClick={() => confirm({
+                  title: 'Are you sure you want to close this window?',
+                  onOk() {
+                    requestDisconnect();
+                  },
+                  onCancel() {
+                    return false;
+                  },
+                })}
+              >
+                <FontAwesomeIcon
+                  icon={faTimes}
+                  size="1x"
+                  color="white"
+                  title="Close Session"
+                />
+              </button>
+            </div>
+
+            <div className="sidebar-item-disconnect-buttons">
+              <GraphSelectDropdown
+                className="graphSelection"
+                currentGraph={currentGraph}
+                graphs={graphs}
+                changeCurrentGraph={changeCurrentGraph}
+                changeGraphDB={changeGraph}
+              />
+            </div>
+
+          </div>
           <div className="sidebar-item-disconnect-buttons">
             <button
-              className="frame-head-button refresh_button btn btn-link"
+              className="refresh frame-head-button refresh_button btn btn-link"
               type="button"
               onClick={() => refreshSidebarHome()}
             >
@@ -436,51 +470,13 @@ const SidebarHome = ({
                 size="1x"
                 color="white"
                 flip="horizontal"
+                title="Refresh"
               />
             </button>
-            <br />
-            <b>Refresh</b>
           </div>
-          <HorizontalLine />
-          <div className="sidebar-item-disconnect-buttons">
-            <button
-              className="frame-head-button close_session btn btn-link"
-              type="button"
-              color="#142B80"
-              onClick={() => confirm({
-                title: 'Are you sure you want to close this window?',
-                onOk() {
-                  requestDisconnect();
-                },
-                onCancel() {
-                  return false;
-                },
-              })}
-            >
-              <FontAwesomeIcon
-                icon={faTimes}
-                size="1x"
-                color="white"
-              />
-            </button>
-            <br />
-            <b>Close Session</b>
-          </div>
-          { !isLabel && (
-            <>
-              <HorizontalLine />
-              <div className="sidebar-item-disconnect-buttons">
-                <GraphSelectDropdown
-                  currentGraph={currentGraph}
-                  graphs={graphs}
-                  changeCurrentGraph={changeCurrentGraph}
-                  changeGraphDB={changeGraph}
-                />
-              </div>
-            </>
-          ) }
         </div>
-      </div>
+      </>
+      )}
     </div>
   );
 };

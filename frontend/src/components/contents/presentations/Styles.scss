@@ -1,0 +1,51 @@
+
+.play{
+    display: flex;
+    left: 3px;
+    position: fixed;
+    top: 70px;
+    background-color: #007bff;
+    padding: 5px 12px;
+    width: 39.6px;
+    border: none;
+  }
+  .play:hover{
+    fill: white;
+    opacity: .9;
+  }
+  .show{
+    display: flex;
+    left: 3px;
+    position: fixed;
+    top: 142px;
+    background-color: #007bff;
+    padding: 6px 2px 3px 4px;
+    width: 39.6px;
+    border: none;
+  }
+  .show:hover{
+    fill: white;
+    opacity: .9;
+  }
+
+  .switch{
+    display: flex;
+    left: 3px;
+    position: fixed;
+    top: 219px;
+    background-color: #007bff;
+    padding: 6px 2px 6px 4px;
+    width: 39.6px;
+    border: none;
+  }
+  .switch:hover{
+    fill: white;
+    opacity: .9;
+  }
+
+ .input-group{
+    width: 100% !important;
+ }
+ .show-eraser{
+  right: -8px;
+ }

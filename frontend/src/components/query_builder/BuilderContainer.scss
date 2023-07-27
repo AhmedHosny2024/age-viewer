@@ -1,16 +1,22 @@
 .code-mirror-builder{
     display: flex;
     padding: 5px 5px 5px 5px;
+    margin-top: 10px;
 }
 
 .selection-builder{
-    display: block;
+    display: flex;
+    justify-content: flex-start;
 
 }
 
 #submit-builder{
     width: 100%;
     display: flex;
-    justify-content: right;
+    justify-content: center;
     padding-top: 10px;
+    cursor: alias;
+}
+.item{
+    margin: 5% 13% 5% 0%;
 }

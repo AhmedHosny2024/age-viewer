@@ -21,14 +21,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SidebarHome from '../containers/SidebarHome';
 import SidebarSetting from '../containers/SidebarSetting';
+import './Styles.scss';
 
 const Sidebar = ({ activeMenuName, isActive }) => (
   <div id="sidebar" className={isActive ? ' active ' : 'inactive'}>
     <div className="tab-content">
-      <div className={`tab-pane fade${activeMenuName === 'home' ? ' active show ' : ''}`} role="tabpanel" aria-labelledby="side-home-tab">
+      <div id="main" className={`tab-pane fade${activeMenuName === 'home' ? ' active show ' : ''}`} role="tabpanel" aria-labelledby="side-home-tab">
         <SidebarHome />
       </div>
-      <div className={`tab-pane fade${activeMenuName === 'setting' ? ' active show ' : ''}`} role="tabpanel" aria-labelledby="side-setting-tab">
+      <div id="sidebar" className={`tab-pane fade${activeMenuName === 'setting' ? ' active show ' : ''}`} role="tabpanel" aria-labelledby="side-setting-tab">
         <SidebarSetting />
       </div>
     </div>
